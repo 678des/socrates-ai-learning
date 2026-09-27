@@ -3,6 +3,7 @@
 import { useState, useTransition } from "react";
 import { Plus, Loader2 } from "lucide-react";
 import { createSubjectAction } from "../actions/newSubject"; // 後述の Server Action
+import { TextInputDialog } from "./TextInputDialog";
 
 export default function NewSubjectModal() {
   const [isOpen, setIsOpen] = useState(false);
@@ -65,6 +66,19 @@ export default function NewSubjectModal() {
           </div>
         </div>
       )}
+
+      <TextInputDialog
+        isOpen={isOpen}
+        onClose={() => setIsOpen(false)}
+        onSubmit={async (value: string) => {
+          if (!value.trim()) return;
+          await createSubjectAction(value);
+        }}
+        title="新しい科目を追加"
+        placeholder="例: Web開発, 英語表現..."
+        submitText="作成する"
+        isPending={isPending}
+      />
     </>
   );
 }
