@@ -10,6 +10,10 @@ CREATE TABLE subjects_new (
     created_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
 );
 
+ALTER TABLE public.subjects_new 
+ADD COLUMN deleted_at timestamp with time zone DEFAULT NULL;
+
+
 
 CREATE TABLE chat_rooms_new(
     id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
