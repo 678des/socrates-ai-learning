@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import ChatFrom from "./ChatForm";
 
 import { SendMessage } from "../actions/chat";
@@ -50,7 +50,18 @@ export function SubjectDetailClient({
   aiSummary: string;
   studyNote: string;
 }) {
-  const [activeMode, setActiveMode] = useState<ModeType>("study");
+  const [activeMode, setActiveMode] = useState<ModeType>(() => {
+    if (typeof window !== "undefined") {
+      const savedMode = localStorage.getItem("activeMode") as ModeType;
+      if (savedMode) return savedMode;
+    }
+    return "study"; // デフォルト値
+  });
+
+  // activeMode が変更されたら localStorage に保存
+  useEffect(() => {
+    localStorage.setItem("activeMode", activeMode);
+  }, [activeMode]);
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [isStudyMemoOpen, setIsStudyMemoOpen] = useState(false);
   const [normalChatLogs, setNormalChatLogs] = useState<Message[]>(
