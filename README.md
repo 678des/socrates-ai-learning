@@ -6,6 +6,9 @@
 | :-------------------------------: | :------------------------: |
 | ![Chat](./images/main-screen.png) | ![Test](./images/test.png) |
 
+🔗 **Demo:**
+https://knowledge-square-es78vvx02-678des-vercels-projects.vercel.app/
+
 > **🔑 お試し用デモアカウント**  
 > 新規登録なしですぐにアプリをお試しいただけます。
 >
