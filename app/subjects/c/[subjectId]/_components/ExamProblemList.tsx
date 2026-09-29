@@ -58,9 +58,9 @@ export default function ExamProblemSidebar({
               <span className="text-xs font-semibold px-1.5 py-0.5 rounded bg-slate-800 text-slate-300 shrink-0">
                 #{index + 1}
               </span>
-              <span className="truncate text-xs">
+              {/* <span className="truncate text-xs">
                 {problem.question_content.slice(0, 22)}...
-              </span>
+              </span> */}
             </div>
 
             <div>

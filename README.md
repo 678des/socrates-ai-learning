@@ -2,9 +2,16 @@
 
 > **単なる暗記で終わらせず、本質的な理解を深めるためのAI対話型学習ワークフローアプリ**
 
-![アプリのメイン画面](https://private-user-images.githubusercontent.com/255147204/658153986-f4d83407-8169-4da0-beb5-66d017769781.png)
+|          メイン対話画面           |      理解度テスト画面      |
+| :-------------------------------: | :------------------------: |
+| ![Chat](./images/main-screen.png) | ![Test](./images/test.png) |
 
-🔗 **Demo:** _(準備中)_
+> **🔑 お試し用デモアカウント**  
+> 新規登録なしですぐにアプリをお試しいただけます。
+>
+> - **Email:** `guest@example.com`
+> - **Password:** `guest1234`  
+>   ※共有アカウントのため、機密情報等の入力はお控えください。
 
 ## 💡 開発背景と解決したい課題
 
@@ -58,6 +65,13 @@ graph TD
     Vercel -->|対話・要約・問題生成・評価| Gemini
 ```
 
+## 🔮 今後の展望 (Roadmap)
+
+- [ ] テスト1問に対する合格不合格のStatus設定と、解答のための会話リセット機能
+- [ ] マイページ機能
+- [ ] ソフトデリートしたチャットの復元と、期限による完全削除
+- [ ] 適切なルーティング
+
 ## 🚀 ローカル開発環境の構築
 
 ### 前提条件
@@ -70,7 +84,7 @@ graph TD
 1. **リポジトリのクローン**
 
    ```bash
-   git clone [https://github.com/678des/socrates-ai-learning.git](https://github.com/678des/socrates-ai-learning.git)
+   git clone https://github.com/678des/socrates-ai-learning.git
    cd socrates-ai-learning
    ```
 
@@ -85,7 +99,9 @@ graph TD
    `.env.local.example` をコピーして `.env.local` を作成し、必要なAPIキーを設定してください。
 
    ```bash
-   cp .env.local.example .env.local
+   NEXT_PUBLIC_SUPABASE_URL=your_supabase_url
+   NEXT_PUBLIC_SUPABASE_ANON_KEY=your_supabase_anon_key
+   GEMINI_API_KEY=your_gemini_api_key
    ```
 
 4. **開発サーバーの起動**
@@ -94,3 +110,7 @@ graph TD
    ```
 
 ブラウザで http://localhost:3000/subjects にアクセスして確認できます。
+
+## 📄 ライセンス
+
+MIT License
