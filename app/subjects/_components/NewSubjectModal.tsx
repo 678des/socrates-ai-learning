@@ -72,6 +72,7 @@ export default function NewSubjectModal() {
         onClose={() => setIsOpen(false)}
         onSubmit={async (value: string) => {
           if (!value.trim()) return;
+          setIsOpen(false);
           await createSubjectAction(value);
         }}
         title="新しい科目を追加"

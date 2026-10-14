@@ -15,7 +15,7 @@ export default async function SubjectTitleArea() {
 
     if (!id) return;
     await updateSubjectName(id, newName);
-    revalidatePath("/dashboard"); // パスはお使いのルーティングに合わせて変更してください
+    revalidatePath("/subjects"); // パスはお使いのルーティングに合わせて変更してください
   }
 
   // 削除処理 (対象の id を引数で受ける)
@@ -24,7 +24,7 @@ export default async function SubjectTitleArea() {
 
     if (!id) return;
     await deleteSubject(id);
-    revalidatePath("/dashboard");
+    revalidatePath("/subjects");
   }
 
   return (
